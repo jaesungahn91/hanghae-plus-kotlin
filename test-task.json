@@ -1,5 +1,5 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:ap-northeast-2:871396498765:task-definition/test-task:2",
+    "taskDefinitionArn": "arn:aws:ecs:ap-northeast-2:871396498765:task-definition/test-task:3",
     "containerDefinitions": [
         {
             "name": "app",
@@ -16,14 +16,16 @@
             ],
             "essential": true,
             "environment": [],
+            "environmentFiles": [],
             "mountPoints": [],
-            "volumesFrom": []
+            "volumesFrom": [],
+            "ulimits": []
         }
     ],
     "family": "test-task",
     "executionRoleArn": "arn:aws:iam::871396498765:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
-    "revision": 2,
+    "revision": 3,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
@@ -54,7 +56,7 @@
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2023-09-13T14:16:25.934Z",
+    "registeredAt": "2023-09-13T14:44:58.436Z",
     "registeredBy": "arn:aws:iam::871396498765:user/jamie.ahn",
     "tags": []
 }
