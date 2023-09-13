@@ -3,7 +3,7 @@
     "containerDefinitions": [
         {
             "name": "app",
-            "image": "871396498765.dkr.ecr.ap-northeast-2.amazonaws.com/test:83c876bf514246588b3a8855041e67bf8b7c0bd4",
+            "image": "871396498765.dkr.ecr.ap-northeast-2.amazonaws.com/test:latest",
             "cpu": 0,
             "portMappings": [
                 {
