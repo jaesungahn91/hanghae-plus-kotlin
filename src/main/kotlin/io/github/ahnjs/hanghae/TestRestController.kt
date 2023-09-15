@@ -8,5 +8,4 @@ class TestRestController {
 
     @GetMapping("/")
     fun test() = Unit
-
 }
