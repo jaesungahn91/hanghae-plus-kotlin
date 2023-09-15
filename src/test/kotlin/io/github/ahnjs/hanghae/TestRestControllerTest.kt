@@ -25,6 +25,7 @@ class TestRestControllerTest {
 
     @Test
     fun test2() {
+        Math.abs(2)
         val controller = TestRestController()
         controller.test()
     }
