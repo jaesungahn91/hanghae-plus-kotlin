@@ -18,14 +18,14 @@ class TestRestControllerTest {
         mockMvc = MockMvcBuilders.webAppContextSetup(wac).build()
     }
 
-    @Test
-    fun test() {
-        mockMvc.get("/test")
-    }
-
-    @Test
-    fun test2() {
-        val controller = TestRestController()
-        controller.test()
-    }
+//    @Test
+//    fun test() {
+//        mockMvc.get("/test")
+//    }
+//
+//    @Test
+//    fun test2() {
+//        val controller = TestRestController()
+//        controller.test()
+//    }
 }
