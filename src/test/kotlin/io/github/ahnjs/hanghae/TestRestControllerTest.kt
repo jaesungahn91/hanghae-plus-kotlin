@@ -8,26 +8,25 @@ import org.springframework.test.web.servlet.get
 import org.springframework.test.web.servlet.setup.MockMvcBuilders
 import org.springframework.web.context.WebApplicationContext
 
-//@WebMvcTest
+@WebMvcTest
 class TestRestControllerTest {
 
-//    private lateinit var mockMvc: MockMvc
-//
-//    @BeforeEach
-//    fun setup(wac: WebApplicationContext) {
-//        mockMvc = MockMvcBuilders.webAppContextSetup(wac).build()
-//    }
-//
-//    @Test
-//    fun test() {
-//        mockMvc.get("/test")
-//    }
-//
-//    @Test
-//    fun test2() {
-//        Math.abs(2)
-//        val controller = TestRestController()
-//        controller.test()
-//    }
+    private lateinit var mockMvc: MockMvc
+
+    @BeforeEach
+    fun setup(wac: WebApplicationContext) {
+        mockMvc = MockMvcBuilders.webAppContextSetup(wac).build()
+    }
+
+    @Test
+    fun test() {
+        mockMvc.get("/test")
+    }
+
+    @Test
+    fun test2() {
+        val controller = TestRestController()
+        controller.test()
+    }
 
 }
