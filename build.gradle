@@ -46,7 +46,7 @@ sonar {
         property 'sonar.host.url', 'https://sonarcloud.io'
         property 'sonar.organization', 'ahnjs'
         property 'sonar.projectKey', 'jaesungahn91_hanghae-plus-kotlin'
-        property 'sonar.coverage.jacoco.xmlReportPaths', 'build/reports/jacoco/test/jacocoTestReport.xml'
+//        property 'sonar.coverage.jacoco.xmlReportPaths', 'build/reports/jacoco/test/jacocoTestReport.xml'
     }
 }
 
