@@ -18,10 +18,10 @@ class TestRestControllerTest {
         mockMvc = MockMvcBuilders.webAppContextSetup(wac).build()
     }
 
-//    @Test
-//    fun test() {
-//        mockMvc.get("/test")
-//    }
+    @Test
+    fun test() {
+        mockMvc.get("/test")
+    }
 //
 //    @Test
 //    fun test2() {
