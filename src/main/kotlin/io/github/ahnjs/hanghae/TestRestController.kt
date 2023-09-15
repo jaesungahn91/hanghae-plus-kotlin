@@ -7,5 +7,7 @@ import org.springframework.web.bind.annotation.RestController
 class TestRestController {
 
     @GetMapping("/")
-    fun test() = Unit
+    fun test(){
+        Math.abs(i)
+    }
 }
