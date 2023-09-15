@@ -28,4 +28,5 @@ class TestRestControllerTest {
         val controller = TestRestController()
         controller.test()
     }
+
 }
