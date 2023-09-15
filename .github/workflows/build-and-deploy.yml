@@ -31,14 +31,14 @@ jobs:
         uses: ScaCap/action-ktlint@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          reporter: github-pr-review
+          reporter: github-pr-check
 
       - name: Build and analyze
         run: |
           ./gradlew build jacocoTestReport
-      - uses: actions/upload-artifact@v3.1.3
-        with:
-          path: build/libs/*.jar
+#      - uses: actions/upload-artifact@v3.1.3
+#        with:
+#          path: build/libs/*.jar
 
       - name: Add coverage to PR
         id: jacoco
