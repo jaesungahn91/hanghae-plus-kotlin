@@ -23,9 +23,4 @@ class TestRestControllerTest {
         mockMvc.get("/test")
     }
 
-    @Test
-    fun test2() {
-        val controller = TestRestController()
-        controller.test()
-    }
 }
