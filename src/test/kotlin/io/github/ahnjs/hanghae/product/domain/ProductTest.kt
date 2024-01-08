@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test
 
 class ProductTest {
 
-    val product = Product("상품", 3);
+    val product = Product("상품", 3)
 
     @Test
     fun `구매 수량은 상품의 갯수를 초과할 수 없다`() {
