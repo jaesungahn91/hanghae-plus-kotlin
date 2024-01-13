@@ -13,8 +13,8 @@ class OrderManager(
     @Transactional
     fun place(order: Order): Order {
         val createdOrder = orderWriter.create(order)
-        createdOrder.orderVariants.forEach {
-            productWriter.decrease(it.variantId, it.quantity)
+        createdOrder.orderProducts.forEach {
+            productWriter.decrease(it.productId, it.quantity)
         }
         return createdOrder
     }

@@ -4,7 +4,7 @@ import io.github.ahnjs.hanghae.order.application.OrderService
 import io.github.ahnjs.hanghae.order.domain.Order
 import io.github.ahnjs.hanghae.order.domain.OrderAddress
 import io.github.ahnjs.hanghae.order.domain.OrderCreateSpec
-import io.github.ahnjs.hanghae.order.domain.OrderVariant
+import io.github.ahnjs.hanghae.order.domain.OrderProduct
 import org.springframework.http.HttpStatus.CREATED
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
@@ -18,22 +18,21 @@ class OrderController(
 
     @ResponseStatus(CREATED)
     @PostMapping("/orders")
-    fun postOrder(@RequestBody request: OrderCreateRequest): Order {
+    fun postOrder(@RequestBody request: OrderPostRequest): Order {
         return orderService.create(request.toOrderCreateSpec())
     }
 
 }
 
-data class OrderCreateRequest(
+data class OrderPostRequest(
     val customerId: Long,
-    val vendorId: Long,
-    val orderVariants: MutableList<OrderVariant>,
+    val orderProducts: MutableList<OrderProduct>,
     val customerAddress: OrderAddress,
 ) {
     fun toOrderCreateSpec(): OrderCreateSpec {
         return OrderCreateSpec(
             customerId = customerId,
-            orderVariants = orderVariants,
+            orderProducts = orderProducts,
             customerAddress = customerAddress,
         )
     }

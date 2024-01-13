@@ -1,32 +1,37 @@
 package io.github.ahnjs.hanghae.order.domain
 
-class OrderVariant(
-    val variantId: Long,
+class OrderProduct(
+    val orderId: Long,
+    val productId: Long,
     val price: Double,
     val quantity: Int,
 ) {
     init {
-        require(quantity > 0) { "Order variants must have a quantity greater than 0" }
+        require(quantity > 0) { "Order products must have a quantity greater than 0" }
     }
 
     companion object {
         fun create(
-            variantId: Long,
+            orderId: Long,
+            productId: Long,
             price: Double,
             quantity: Int,
-        ) = OrderVariant(
-            variantId = variantId,
+        ) = OrderProduct(
+            orderId = orderId,
+            productId = productId,
             price = price,
             quantity = quantity,
         )
 
         fun fixture(
-            variantId: Long = 1L,
+            orderId: Long = 1L,
+            productId: Long = 1L,
             price: Double = 3000.0,
             quantity: Int = 1,
-        ): OrderVariant {
-            return OrderVariant(
-                variantId = variantId,
+        ): OrderProduct {
+            return OrderProduct(
+                orderId = orderId,
+                productId = productId,
                 price = price,
                 quantity = quantity,
             )
@@ -37,12 +42,12 @@ class OrderVariant(
         if (this === other) return true
         if (javaClass != other?.javaClass) return false
 
-        other as OrderVariant
+        other as OrderProduct
 
-        return variantId == other.variantId
+        return productId == other.productId
     }
 
     override fun hashCode(): Int {
-        return variantId.hashCode()
+        return productId.hashCode()
     }
 }

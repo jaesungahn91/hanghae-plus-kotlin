@@ -9,10 +9,10 @@ class OrderCreateSpecTest {
     @Test
     fun `주문 품목이 비어 있는 경우 예외 발생`() {
         // given
-        val orderVariants = mutableListOf<OrderVariant>()
+        val orderProducts = mutableListOf<OrderProduct>()
 
         // when & then
-        Assertions.assertThatThrownBy { Order.fixture(orderVariants = orderVariants) }
+        Assertions.assertThatThrownBy { Order.fixture(orderProducts = orderProducts) }
             .isInstanceOf(IllegalArgumentException::class.java)
     }
 

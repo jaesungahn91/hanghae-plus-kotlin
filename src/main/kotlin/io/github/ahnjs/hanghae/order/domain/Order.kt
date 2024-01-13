@@ -5,39 +5,39 @@ import io.github.ahnjs.hanghae.order.domain.OrderStatus.PENDING_PAYMENT
 class Order(
     val id: Long? = null,
     val customerId: Long,
-    val orderVariants: MutableList<OrderVariant>,
+    val orderProducts: MutableList<OrderProduct>,
     val customerAddress: OrderAddress,
     val status: OrderStatus = PENDING_PAYMENT,
 ) {
 
     init {
-        require(orderVariants.isNotEmpty()) { "Order must have at least one variant" }
+        require(orderProducts.isNotEmpty()) { "Order must have at least one product" }
     }
 
     constructor(spec: OrderCreateSpec) : this(
         customerId = spec.customerId,
-        orderVariants = spec.orderVariants,
+        orderProducts = spec.orderProducts,
         customerAddress = spec.customerAddress,
     )
 
     companion object {
         fun fixture(
             customerId: Long = 1L,
-            orderVariants: MutableList<OrderVariant> = mutableListOf(OrderVariant.fixture()),
+            orderProducts: MutableList<OrderProduct> = mutableListOf(OrderProduct.fixture()),
             customerAddress: OrderAddress = OrderAddress(),
             id: Long? = null,
         ): Order {
             return Order(
                 id = id,
                 customerId = customerId,
-                orderVariants = orderVariants,
+                orderProducts = orderProducts,
                 customerAddress = customerAddress,
             )
         }
     }
 
-    fun addOrderVariants(orderVariants: MutableList<OrderVariant>) {
-        this.orderVariants.addAll(orderVariants)
+    fun addOrderProduct(orderProducts: MutableList<OrderProduct>) {
+        this.orderProducts.addAll(orderProducts)
     }
 
     override fun equals(other: Any?): Boolean {
@@ -56,6 +56,6 @@ class Order(
 
 data class OrderCreateSpec(
     val customerId: Long,
-    val orderVariants: MutableList<OrderVariant>,
+    val orderProducts: MutableList<OrderProduct>,
     val customerAddress: OrderAddress,
 )

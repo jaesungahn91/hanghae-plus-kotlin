@@ -4,7 +4,7 @@ import org.assertj.core.api.Assertions.assertThat
 import org.assertj.core.api.Assertions.assertThatThrownBy
 import org.junit.jupiter.api.Test
 
-class OrderVariantTest {
+class OrderProductTest {
 
     @Test
     fun `주문 품목의 수량이 0이하일 경우 예외 발생`() {
@@ -12,19 +12,19 @@ class OrderVariantTest {
         val quantity = 0
 
         // when & then
-        assertThatThrownBy { OrderVariant.fixture(quantity = quantity) }
+        assertThatThrownBy { OrderProduct.fixture(quantity = quantity) }
             .isInstanceOf(IllegalArgumentException::class.java)
     }
 
     @Test
     fun `주문 품목 생성`() {
         // given
-        val variantId = 1L
+        val productId = 1L
 
         // when
-        val orderVariant = OrderVariant.fixture(variantId = variantId)
+        val orderProduct = OrderProduct.fixture(productId = productId)
 
         // then
-        assertThat(orderVariant.variantId).isEqualTo(variantId)
+        assertThat(orderProduct.productId).isEqualTo(productId)
     }
 }

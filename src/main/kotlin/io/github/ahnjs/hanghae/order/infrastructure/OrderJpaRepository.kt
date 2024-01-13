@@ -8,14 +8,14 @@ import org.springframework.stereotype.Repository
 @Repository
 class OrderJpaRepository(
     private val orderEntityRepository: OrderEntityRepository,
-    private val orderVariantEntityRepository: OrderVariantEntityRepository,
+    private val orderProductEntityRepository: OrderProductEntityRepository,
 ) : OrderRepository {
 
     override fun save(order: Order): Order {
         val createdOrder = orderEntityRepository.save(order.toEntity())
-        val createdOrderVariants =
-            orderVariantEntityRepository.saveAll(createdOrder.toDomain().orderVariants.map { it.toEntity(createdOrder) })
-        createdOrder.addOrderVariants(createdOrderVariants)
+        val createdOrderProducts =
+            orderProductEntityRepository.saveAll(createdOrder.toDomain().orderProducts.map { it.toEntity(createdOrder) })
+        createdOrder.addOrderProducts(createdOrderProducts)
         return createdOrder.toDomain()
     }
 
@@ -27,7 +27,7 @@ interface OrderEntityRepository : JpaRepository<OrderEntity, Long> {
 
 fun Order.toEntity(): OrderEntity {
     return OrderEntity(
-        orderVariants = mutableListOf(),
+        orderProducts = mutableListOf(),
         customerId = this.customerId,
         status = this.status,
         customerAddress = this.customerAddress,

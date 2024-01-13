@@ -7,9 +7,10 @@ import jakarta.persistence.*
 import jakarta.persistence.GenerationType.IDENTITY
 
 @Entity
+@Table(name = "orders")
 class OrderEntity(
     @OneToMany(mappedBy = "order", cascade = [CascadeType.ALL])
-    val orderVariants: MutableList<OrderVariantEntity>,
+    val orderProducts: MutableList<OrderProductEntity>,
 
     val customerId: Long,
 
@@ -27,8 +28,8 @@ class OrderEntity(
         return Order.fixture()
     }
 
-    fun addOrderVariants(orderVariants: MutableList<OrderVariantEntity>) {
-        this.orderVariants.addAll(orderVariants)
+    fun addOrderProducts(orderProduct: MutableList<OrderProductEntity>) {
+        this.orderProducts.addAll(orderProduct)
     }
 
 }

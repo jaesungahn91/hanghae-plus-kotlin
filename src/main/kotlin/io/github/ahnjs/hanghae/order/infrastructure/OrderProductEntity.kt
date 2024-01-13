@@ -1,11 +1,11 @@
 package io.github.ahnjs.hanghae.order.infrastructure
 
-import io.github.ahnjs.hanghae.order.domain.OrderVariant
+import io.github.ahnjs.hanghae.order.domain.OrderProduct
 import jakarta.persistence.*
 import jakarta.persistence.FetchType.LAZY
 
 @Entity
-class OrderVariantEntity(
+class OrderProductEntity(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long? = null,
@@ -15,15 +15,15 @@ class OrderVariantEntity(
     val order: OrderEntity,
 
     @Column(nullable = false)
-    val variantId: Long,
+    val productId: Long,
 
     val price: Double,
 
     val quantity: Int,
 ) {
 
-    fun toDomain(): OrderVariant {
-        return OrderVariant.fixture()
+    fun toDomain(): OrderProduct {
+        return OrderProduct.fixture()
     }
 
 }
