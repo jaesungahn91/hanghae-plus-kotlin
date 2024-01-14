@@ -9,10 +9,11 @@ import org.springframework.stereotype.Repository
 class OrderProductJpaRepository(
     private val orderProductEntityRepository: OrderProductEntityRepository,
 ) : OrderProductRepository {
-
 }
 
-interface OrderProductEntityRepository : JpaRepository<OrderProductEntity, Long>
+interface OrderProductEntityRepository : JpaRepository<OrderProductEntity, Long> {
+
+}
 
 fun OrderProduct.toEntity(order: OrderEntity): OrderProductEntity {
     return OrderProductEntity(

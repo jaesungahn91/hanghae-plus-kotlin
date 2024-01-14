@@ -5,11 +5,8 @@ import jakarta.persistence.*
 import jakarta.persistence.FetchType.LAZY
 
 @Entity
+@Table(name = "order_products")
 class OrderProductEntity(
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long? = null,
-
     @JoinColumn(name = "order_id", referencedColumnName = "id")
     @ManyToOne(fetch = LAZY)
     val order: OrderEntity,
@@ -21,9 +18,11 @@ class OrderProductEntity(
 
     val quantity: Int,
 ) {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    val id: Long? = null
 
     fun toDomain(): OrderProduct {
         return OrderProduct.fixture()
     }
-
 }
